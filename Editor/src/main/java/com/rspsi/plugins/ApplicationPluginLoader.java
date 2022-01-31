@@ -6,6 +6,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLClassLoader;
 import java.util.List;
+import java.util.Objects;
 import java.util.ServiceLoader;
 import java.util.function.Consumer;
 
@@ -25,8 +26,8 @@ public class ApplicationPluginLoader {
 	}
 	
 	public static void loadPlugins(MainWindow window) {
-		File pluginPath = new File("plugins" + File.separator + "active");
-		System.out.println("Plugin folder contains " + pluginPath.listFiles().length + " files.");
+		File pluginPath = new File("D:" + File.separator + "RSPSi" + File.separator + "plugins" + File.separator + "active");
+		System.out.println("Plugin folder contains " + Objects.requireNonNull(pluginPath.listFiles()).length + " files.");
 		File[] plugins = pluginPath.listFiles((File dir, String name) -> name.endsWith(".jar"));
 		
 		List<URL> urls = Lists.newArrayList();
